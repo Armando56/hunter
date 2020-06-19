@@ -17,13 +17,21 @@ body{
 	color: $brown;
 
 }
+.no-scroll{
+	overflow: hidden;
+}
 .header{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	height: 104px;
 	padding-left: 34px;
 	border-bottom: 1px solid #D4D4D4;
+}
+.m-menu{
+	display: flex;
+	height: 100%;
+	align-items: center;
+	flex-grow: 1;
 }
 .line{
 	height: 100%;
@@ -150,6 +158,7 @@ body{
 	border-radius: 0px 0px 5px 5px;
 	padding: 25px 0;
 	cursor: pointer;
+	text-decoration: none;
 	&-icon {
 		margin-right: 14px;
 	}
@@ -211,9 +220,17 @@ body{
 	align-items: center;
 	margin-bottom: 60px;
 	&-content {
-		display: flex;
+		display: none;
 		align-items: center;
 		flex-wrap: wrap;
+		visibility: hidden;
+	}
+	&-content.visible{
+		display: flex;
+		visibility: visible;
+	}
+	.tab{
+		cursor: pointer;
 	}
 }
 .section-title{
@@ -283,6 +300,18 @@ body{
 	font-weight: 900;
 	color: #000;
 	margin-bottom: 65px;
+}
+
+.btn_next{
+	display: none;
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 99;
+	cursor: pointer;
 }
 
 
@@ -376,24 +405,78 @@ body{
 		padding-top: 50px;
 		padding-bottom: 70px;
 	}
+	.news-card{
+		max-width: 90%;
+	}
 	.header{
 		height: 80px;
-	}
-	.button-group{
-		display: none;
-	}
-	.search-input{
-		display: none;
 	}
 	.line{
 		display: none;
 	}
 	.mobile-btn{
 		display: block;
+		margin-left: auto;
 	}
 	.header{
 		padding-right: 2.5%;
 		padding-left: 2.5%;
+	}
+	.m-menu{
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		position: fixed;
+		left: 0;
+		top: 68px;
+		right: 0;
+		bottom: 0;
+		height: calc(100% - 68px);
+		background: $blue;
+	}
+	.m-menu.active{
+		display: flex;
+	}
+	.sign-up,
+	.login{
+		width: 100%;
+	}
+	.button-group{
+		height: auto;
+		flex-direction: column;
+	}
+	.search-input{
+		margin: 0;
+		width: 260px;
+		height: 50px;
+		border-radius: 5px;
+		border: none;
+		background-image: none;
+	}
+	.navigation{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+	}
+	.navigation-link{
+		margin-bottom: 18px;
+		color: #fff;
+		margin-right: 0;
+	}
+	.navigation-link:last-child{
+		margin-bottom: 0;
+	}
+	.sign-up{
+	background-color: transparent;
+	color: #fff;
+	border: none;
+	margin-bottom: 5px;
+	}
+	.btn_next{
+		display: block;
 	}
 }
 
